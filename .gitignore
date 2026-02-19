@@ -1,0 +1,11 @@
+.build/
+build/
+.swiftpm/
+.DS_Store
+*.xcodeproj
+DerivedData/
+icon.svg
+icon_big.png
+AppIcon.iconset/
+generate_icon.py
+gittree-debug.log
