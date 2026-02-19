@@ -1,0 +1,42 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release
+        run: swift build -c release
+
+      - name: Package .app bundle
+        run: |
+          mkdir -p GitGrove.app/Contents/MacOS
+          mkdir -p GitGrove.app/Contents/Resources
+          cp .build/release/GitGrove GitGrove.app/Contents/MacOS/
+          cp Info.plist GitGrove.app/Contents/
+          cp AppIcon.icns GitGrove.app/Contents/Resources/
+
+      - name: Create DMG
+        run: |
+          mkdir -p dmg_contents
+          cp -R GitGrove.app dmg_contents/
+          ln -s /Applications dmg_contents/Applications
+          hdiutil create -volname "GitGrove" -srcfolder dmg_contents -ov -format UDZO GitGrove.dmg
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GitGrove.dmg
+          path: GitGrove.dmg
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: GitGrove.dmg
+          generate_release_notes: true
