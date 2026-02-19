@@ -64,8 +64,9 @@ class GitScanner: ObservableObject {
         }
 
         // Remove stale repos, sort, save
+        let found = foundPaths
         await MainActor.run {
-            repositories.removeAll { !foundPaths.contains($0.path) }
+            repositories.removeAll { !found.contains($0.path) }
             repositories = sortRepos(repositories)
             isScanning = false
             saveCache()
