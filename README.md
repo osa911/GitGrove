@@ -4,6 +4,14 @@ See all your git worktrees in one place.
 
 ![macOS](https://img.shields.io/badge/macOS-14%2B-blue) ![Swift](https://img.shields.io/badge/Swift-5.9-orange) ![License](https://img.shields.io/badge/license-MIT-green)
 
+## Screenshots
+
+![Main View](screenshots/main.jpg?v=2)
+
+![Worktree Details](screenshots/worktrees.jpg?v=2)
+
+![Quick Switcher (⌘K)](screenshots/quick-switcher.jpg?v=2)
+
 ## Features
 
 - **Scan & discover** — automatically finds all git repositories and worktrees across your folders

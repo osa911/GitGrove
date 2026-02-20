@@ -8,4 +8,6 @@ icon.svg
 icon_big.png
 AppIcon.iconset/
 generate_icon.py
+blur_branches.py
+screenshots/*-raw.jpg
 gittree-debug.log
