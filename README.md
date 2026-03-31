@@ -27,7 +27,7 @@ See all your git worktrees in one place.
 ## Install
 
 ```bash
-git clone https://github.com/nicenemo/GitGrove.git
+git clone https://github.com/osa911/GitGrove.git
 cd GitGrove
 ./build.sh
 open build/GitGrove.app
